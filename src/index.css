@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #080D0D;
+    color: #F1F1F1;
+    font-family: 'Inter', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom Sleek GfG Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080D0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2E2E;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3D4444;
+}
+
+/* Panel divider styling with circular handle */
+.panel-resizer {
+  width: 6px;
+  cursor: col-resize;
+  background-color: #222626;
+  transition: background-color 0.15s ease;
+  position: relative;
+  z-index: 20;
+}
+
+.panel-resizer:hover, .panel-resizer.dragging {
+  background-color: #2BA84A;
+}
+
+.panel-resizer::after {
+  content: '‹|›';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #2A2E2E;
+  border: 1px solid #444444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A0A0A0;
+  font-size: 9px;
+  font-family: monospace;
+  font-weight: bold;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.panel-resizer:hover::after, .panel-resizer.dragging::after {
+  background-color: #1E2E23;
+  color: #2BA84A;
+  border-color: #2BA84A;
+}
+
+/* Code highlighting typography */
+.code-inline {
+  font-family: 'Fira Code', Consolas, monospace;
+  background-color: #1B2121;
+  color: #2BA84A;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.2rem;
+  border: 1px solid #333333;
+  font-size: 0.85em;
+}
+
+/* Monaco container adjustments */
+.monaco-editor, .monaco-editor .overflow-guard {
+  border-radius: 0 !important;
+}
